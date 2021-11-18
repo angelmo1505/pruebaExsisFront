@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row"> 
+        <div class="filters">
+            <div class="col-md-6">
+                <label for="fecEntrega" class="sr-only">Fecha Entrega</label>
+                <input type="date" class="form-control" name="fecEntrega" id="fecEntrega" placeholder="Fecha entrega" [(ngModel)]="fecEntrega" (ngModelChange)="consultar()">
+            </div>
+            <div class="col-md-6">
+                <label for="idProducto" class="sr-only">Id Producto</label>
+                <input type="text" class="form-control" name="idProducto" id="idProducto" placeholder="Id Producto" [(ngModel)]="idProducto" (ngModelChange)="consultar()">
+            </div>
+            <div class="col-12 buttons">
+                <button type="submit" class="btn btn-primary" (click)="consultar()">Consultar</button>
+                <button type="submit" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+            </div>
+        </div>       
+    </div>
+    
+      <div class="">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producto of productos">
+                <th scope="row">{{producto.id}}</th>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.cantidad}}</td>
+              </tr>
+             
+            </tbody>
+          </table>
+      </div>
+</div>
